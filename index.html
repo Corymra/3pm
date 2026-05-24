@@ -35,7 +35,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px;
-    height: 70px;
+    height: 88px;
     background: rgba(10,10,10,0.95);
     backdrop-filter: blur(8px);
     border-bottom: 2px solid var(--red);
@@ -44,20 +44,25 @@
     display: flex; align-items: center; gap: 12px;
   }
   .logo-mark {
-    width: 48px; height: 48px;
-    position: relative;
+    width: 176px; height: 70px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--white-pure);
+    padding: 2px 8px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
   }
-  .logo-svg { width: 100%; height: 100%; }
+  .logo-img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .nav-brand {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 3px;
     color: var(--white-pure);
     line-height: 1;
+    display: none;
   }
   .nav-brand span { color: var(--red); }
   .nav-links {
     display: flex; gap: 32px; list-style: none;
+    align-items: center;
   }
   .nav-links a {
     font-family: 'Barlow Condensed', sans-serif;
@@ -77,19 +82,37 @@
     transition: background 0.2s !important;
   }
   .nav-cta:hover { background: var(--red-dark) !important; color: var(--white-pure) !important; }
+  .nav-phone {
+    color: var(--white-pure) !important;
+    border: 1px solid var(--steel);
+    padding: 8px 18px;
+  }
+  .nav-phone:hover { border-color: var(--red); color: var(--white-pure) !important; }
+  .nav-mobile-call {
+    display: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--white-pure);
+    padding: 10px 18px;
+    text-decoration: none;
+  }
 
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-top: 70px;
+    padding-top: 88px;
     position: relative;
     overflow: hidden;
   }
   .hero-left {
     display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 60px 80px 80px;
+    padding: 44px 60px 56px 80px;
     position: relative; z-index: 2;
   }
   .hero-eyebrow {
@@ -109,8 +132,8 @@
   }
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 7vw, 6.5rem);
-    line-height: 0.92;
+    font-size: clamp(3.5rem, 6vw, 5.7rem);
+    line-height: 0.9;
     letter-spacing: 2px;
     color: var(--white-pure);
     margin-bottom: 12px;
@@ -131,11 +154,11 @@
     line-height: 1.7;
     color: var(--gray-light);
     max-width: 420px;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
   }
   .hero-badges {
     display: flex; flex-wrap: wrap; gap: 10px;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
   }
   .badge {
     font-family: 'Barlow Condensed', sans-serif;
@@ -592,6 +615,13 @@
     color: var(--white);
   }
   .footer-brand span { color: var(--red); }
+  .footer-logo {
+    width: 150px; height: 74px;
+    display: block;
+    object-fit: contain;
+    background: var(--white-pure);
+    padding: 3px 8px;
+  }
   .footer-copy {
     font-size: 0.8rem; color: var(--gray);
     font-weight: 300;
@@ -637,6 +667,18 @@
     .footer-highlights { flex-direction: column; gap: 10px; }
     .stats-bar { padding: 28px 24px; }
     .nav-links { display: none; }
+    nav { height: 76px; padding: 0 24px; }
+    .logo-mark { width: 148px; height: 60px; }
+    .hero { padding-top: 76px; }
+    .nav-mobile-call { display: inline-block; }
+  }
+  @media (max-height: 760px) and (min-width: 901px) {
+    .hero-left { padding-top: 32px; padding-bottom: 36px; }
+    .hero-title { font-size: clamp(3.25rem, 5.3vw, 5rem); }
+    .hero-sub { margin-bottom: 22px; }
+    .hero-desc, .hero-badges { margin-bottom: 22px; }
+    .badge { padding: 5px 12px; }
+    .btn-primary, .btn-outline { padding: 14px 30px; }
   }
 </style>
 </head>
@@ -646,14 +688,7 @@
 <nav>
   <div class="nav-logo">
     <div class="logo-mark">
-      <svg class="logo-svg" viewBox="0 0 56 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text x="1" y="32" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#C8102E">3</text>
-        <polyline points="18,36 28,18 38,36" fill="none" stroke="#F5F5F5" stroke-width="2.5" stroke-linejoin="round"/>
-        <line x1="14" y1="36" x2="42" y2="36" stroke="#F5F5F5" stroke-width="2.5"/>
-        <line x1="36" y1="22" x2="43" y2="22" stroke="#C8102E" stroke-width="2.5"/>
-        <line x1="36" y1="26" x2="43" y2="26" stroke="#C8102E" stroke-width="2.5"/>
-        <line x1="36" y1="30" x2="43" y2="30" stroke="#C8102E" stroke-width="2.5"/>
-      </svg>
+      <img class="logo-img" src="Images/Logo.png" alt="3PM LLC Property Maintenance and Management">
     </div>
     <div>
       <div class="nav-brand"><span>3PM</span> LLC</div>
@@ -663,8 +698,10 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#reviews">Reviews</a></li>
+    <li><a href="tel:3024841659" class="nav-phone">Call Now</a></li>
     <li><a href="#pay" class="nav-cta">Pay Invoice</a></li>
   </ul>
+  <a href="tel:3024841659" class="nav-mobile-call">Call Now</a>
 </nav>
 
 <!-- HERO -->
@@ -678,12 +715,12 @@
     </h1>
     <div class="hero-sub">Property Maintenance & Management · Contracted Services</div>
     <p class="hero-desc">
-      From ground-up framing to finish work, 3PM LLC delivers quality craftsmanship across Delaware. Veteran-owned. Family-operated. 12 consecutive years of 5-star results.
+      From ground up framing to finish work, 3PM LLC delivers quality craftsmanship across Delaware. Veteran owned. Family operated. 12 consecutive years of 5 star results.
     </p>
     <div class="hero-badges">
-      <span class="badge highlight">Veteran-Owned</span>
-      <span class="badge highlight">Minority-Owned</span>
-      <span class="badge">Family-Operated</span>
+      <span class="badge highlight">Veteran Owned</span>
+      <span class="badge highlight">Minority Owned</span>
+      <span class="badge">Family Operated</span>
       <span class="badge">24/7 Emergency</span>
       <span class="badge">Free Estimates</span>
       <span class="badge">Licensed & Insured</span>
@@ -696,19 +733,19 @@
   <div class="hero-right">
     <div class="hero-photo-grid">
       <div class="hero-photo">
-        <img src="images/clp_6567b5a4a1b7f.jpeg" alt="Kitchen remodel">
+        <img src="Images/clp_6567b5a4a1b7f.jpeg" alt="Kitchen remodel">
         <span class="hero-photo-label">Kitchen Remodel</span>
       </div>
       <div class="hero-photo">
-        <img src="images/clp_672ea3ad6b941.jpeg" alt="Composite deck">
+        <img src="Images/clp_672ea3ad6b941.jpeg" alt="Composite deck">
         <span class="hero-photo-label">Composite Decking</span>
       </div>
       <div class="hero-photo">
-        <img src="images/clp_6567b50c1a2e0.jpeg" alt="Bathroom tile">
+        <img src="Images/clp_6567b50c1a2e0.jpeg" alt="Bathroom tile">
         <span class="hero-photo-label">Bath Renovation</span>
       </div>
       <div class="hero-photo">
-        <img src="images/clp_6568ab3daeeca.jpeg" alt="New construction framing">
+        <img src="Images/clp_6568ab3daeeca.jpeg" alt="New construction framing">
         <span class="hero-photo-label">New Construction</span>
       </div>
     </div>
@@ -748,17 +785,17 @@
   <div class="services-intro">
     <div>
       <div class="section-label">What We Do</div>
-      <h2 class="section-title">FULL-SCOPE<br><span class="accent">SERVICES</span></h2>
+      <h2 class="section-title">FULL SCOPE<br><span class="accent">SERVICES</span></h2>
     </div>
     <p class="services-desc">
-      3PM LLC handles every phase — from raw concrete foundations to finish carpentry, tile work, and landscaping. One contractor. Complete solutions. No subcontractor runaround.
+      3PM LLC handles every phase, from raw concrete foundations to finish carpentry, tile work, and landscaping. One contractor. Complete solutions. No subcontractor runaround.
     </p>
   </div>
   <div class="services-grid">
     <div class="service-card">
       <span class="service-icon">🏗️</span>
       <div class="service-name">New Construction & Framing</div>
-      <p class="service-desc">Ground-up builds from foundation to roof. Structural framing, concrete work, and masonry.</p>
+      <p class="service-desc">Ground up builds from foundation to roof. Structural framing, concrete work, and masonry.</p>
     </div>
     <div class="service-card">
       <span class="service-icon">🏠</span>
@@ -778,7 +815,7 @@
     <div class="service-card">
       <span class="service-icon">🪵</span>
       <div class="service-name">Decks & Porches</div>
-      <p class="service-desc">Pressure-treated and composite deck builds with custom railings and lighting.</p>
+      <p class="service-desc">Pressure treated and composite deck builds with custom railings and lighting.</p>
     </div>
     <div class="service-card">
       <span class="service-icon">🎨</span>
@@ -793,7 +830,7 @@
     <div class="service-card">
       <span class="service-icon">⚡</span>
       <div class="service-name">Handyman & Emergency</div>
-      <p class="service-desc">24/7 emergency response. No job too small — grab bars, repairs, quick fixes.</p>
+      <p class="service-desc">24/7 emergency response. No job too small. Grab bars, repairs, quick fixes.</p>
     </div>
   </div>
 </section>
@@ -804,70 +841,70 @@
   <h2 class="section-title">THE <span class="accent">PORTFOLIO</span></h2>
   <div class="portfolio-grid">
     <div class="port-item tall">
-      <img src="images/clp_6567b5a4a1b7f.jpeg" alt="Kitchen remodel with stone backsplash">
+      <img src="Images/clp_6567b5a4a1b7f.jpeg" alt="Kitchen remodel with stone backsplash">
       <div class="port-overlay">
         <div class="port-tag">Kitchen</div>
         <div class="port-title">Full Kitchen Renovation</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_6568adffbd928.jpeg" alt="Interior staircase remodel">
+      <img src="Images/clp_6568adffbd928.jpeg" alt="Interior staircase remodel">
       <div class="port-overlay">
         <div class="port-tag">Interior</div>
         <div class="port-title">Staircase & Flooring</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_672ea3ad6b941.jpeg" alt="Composite deck">
+      <img src="Images/clp_672ea3ad6b941.jpeg" alt="Composite deck">
       <div class="port-overlay">
         <div class="port-tag">Decking</div>
         <div class="port-title">Composite Deck Build</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_6567b50c1a2e0.jpeg" alt="Tile bathroom">
+      <img src="Images/clp_6567b50c1a2e0.jpeg" alt="Tile bathroom">
       <div class="port-overlay">
         <div class="port-tag">Bathroom</div>
         <div class="port-title">Tile Shower Renovation</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_6568ae0fc6cad.jpeg" alt="Modern kitchen">
+      <img src="Images/clp_6568ae0fc6cad.jpeg" alt="Modern kitchen">
       <div class="port-overlay">
         <div class="port-tag">Kitchen</div>
         <div class="port-title">White Kitchen Remodel</div>
       </div>
     </div>
     <div class="port-item tall">
-      <img src="images/clp_6568ab3daeeca.jpeg" alt="New construction framing">
+      <img src="Images/clp_6568ab3daeeca.jpeg" alt="New construction framing">
       <div class="port-overlay">
         <div class="port-tag">Construction</div>
         <div class="port-title">New Home Framing</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_67fbf576dd8f1.jpeg" alt="Bathroom tile work">
+      <img src="Images/clp_67fbf576dd8f1.jpeg" alt="Bathroom tile work">
       <div class="port-overlay">
         <div class="port-tag">Bathroom</div>
         <div class="port-title">Tile & Bath Renovation</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_6567b4e3869a6.jpeg" alt="Deck with lights at night">
+      <img src="Images/clp_6567b4e3869a6.jpeg" alt="Deck with lights at night">
       <div class="port-overlay">
         <div class="port-tag">Decking</div>
         <div class="port-title">Lighted Deck Build</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_6568abd710870.jpeg" alt="Foundation work">
+      <img src="Images/clp_6568abd710870.jpeg" alt="Foundation work">
       <div class="port-overlay">
         <div class="port-tag">Foundation</div>
         <div class="port-title">Block Foundation</div>
       </div>
     </div>
     <div class="port-item">
-      <img src="images/clp_66bd502f1b492.jpeg" alt="Concrete slab">
+      <img src="Images/clp_66bd502f1b492.jpeg" alt="Concrete slab">
       <div class="port-overlay">
         <div class="port-tag">Concrete</div>
         <div class="port-title">Concrete Patio Slab</div>
@@ -894,42 +931,42 @@
       <div class="review-quote-mark">"</div>
       <div class="review-stars">★★★★★</div>
       <p class="review-text">Mr. Parker and his team have been very professional with every job. Completed in the time frame given and work is superb. You will not be disappointed.</p>
-      <div class="review-author">Christina — Georgetown, DE</div>
+      <div class="review-author">Christina, Georgetown, DE</div>
       <div class="review-work">Remodeling, Moving, Landscaping</div>
     </div>
     <div class="review-card">
       <div class="review-quote-mark">"</div>
       <div class="review-stars">★★★★★</div>
       <p class="review-text">He did a phenomenal job and was able to do what needed to be done in my house ASAP. I would give 10 stars if I could.</p>
-      <div class="review-author">Cecilia — Milford, DE</div>
+      <div class="review-author">Cecilia, Milford, DE</div>
       <div class="review-work">Emergency Assistance</div>
     </div>
     <div class="review-card">
       <div class="review-quote-mark">"</div>
       <div class="review-stars">★★★★★</div>
       <p class="review-text">Very professional, great quality of work and always a positive attitude. Willing to adjust to customer needs. Would use 3PM always and recommend to all.</p>
-      <div class="review-author">Andre — Smyrna, DE</div>
+      <div class="review-author">Andre, Smyrna, DE</div>
       <div class="review-work">Deck & Home Improvements</div>
     </div>
     <div class="review-card">
       <div class="review-quote-mark">"</div>
       <div class="review-stars">★★★★★</div>
       <p class="review-text">On time, courteous, professional and did exactly what I expected. I highly recommend him!</p>
-      <div class="review-author">Susan — Georgetown, DE</div>
+      <div class="review-author">Susan, Georgetown, DE</div>
       <div class="review-work">Grab Bar Installation</div>
     </div>
     <div class="review-card">
       <div class="review-quote-mark">"</div>
       <div class="review-stars">★★★★★</div>
       <p class="review-text">Very professional and exceptional work! Paneling removal and painting done perfectly.</p>
-      <div class="review-author">Darlene — Seaford, DE</div>
+      <div class="review-author">Darlene, Seaford, DE</div>
       <div class="review-work">Drywall, Paint & Remodel</div>
     </div>
     <div class="review-card">
       <div class="review-quote-mark">"</div>
       <div class="review-stars">★★★★★</div>
       <p class="review-text">Great people to work with. Everything done in a timely manner, perfect. Definitely would use again.</p>
-      <div class="review-author">Jennifer — Greenwood, DE</div>
+      <div class="review-author">Jennifer, Greenwood, DE</div>
       <div class="review-work">Repairs & Landscaping</div>
     </div>
   </div>
@@ -941,10 +978,10 @@
     <div class="section-label">Secure Online Payment</div>
     <h2 class="section-title">PAY YOUR <span class="accent">INVOICE</span></h2>
     <p style="font-size:0.95rem; font-weight:300; line-height:1.8; color:var(--gray-light); margin-top:16px;">
-      Settle your balance quickly and securely using any major credit or debit card. Powered by Square — trusted by millions of businesses.
+      Settle your balance quickly and securely using any major credit or debit card. Powered by Square, trusted by millions of businesses.
     </p>
     <ul class="payment-info-list">
-      <li>All major cards accepted — Visa, Mastercard, Amex, Discover</li>
+      <li>All major cards accepted, Visa, Mastercard, Amex, Discover</li>
       <li>Payments processed securely via Square</li>
       <li>Receipt sent automatically to your email</li>
       <li>Questions? Call us at 302.484.1659</li>
@@ -992,11 +1029,11 @@
         </select>
       </div>
       <div class="square-placeholder">
-        <div class="square-placeholder-label">Card Payment — Powered by Square</div>
+        <div class="square-placeholder-label">Card Payment, Powered by Square</div>
         <div class="square-mock-card">Square Web Payments SDK loads here</div>
         <div class="square-badge">
           <span class="square-badge-icon">■ Square</span>
-          <span class="square-badge-text">256-bit encrypted · PCI compliant</span>
+          <span class="square-badge-text">256 bit encrypted · PCI compliant</span>
         </div>
       </div>
       <button class="btn-primary" style="margin-top:8px; text-align:center;">Submit Payment</button>
@@ -1038,11 +1075,11 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand"><span>3PM</span> LLC</div>
+  <img class="footer-logo" src="Images/Logo.png" alt="3PM LLC Property Maintenance and Management">
   <div class="footer-highlights">
-    <span class="footer-tag">Veteran-Owned</span>
-    <span class="footer-tag">Minority-Owned</span>
-    <span class="footer-tag">Family-Operated</span>
+    <span class="footer-tag">Veteran Owned</span>
+    <span class="footer-tag">Minority Owned</span>
+    <span class="footer-tag">Family Operated</span>
     <span class="footer-tag">Delaware</span>
   </div>
   <div class="footer-copy">© 2026 3PM LLC · All Rights Reserved · Built by VAALOKTEC Systems™</div>
